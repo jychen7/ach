@@ -6,9 +6,7 @@ module ACH::Records
     const_field :priority_code, '01'
     field :immediate_destination, String, lambda { |f| f.rjust(10) }, nil, /\A\d{9,10}\z/
     field :immediate_origin, String, lambda { |f| f.rjust(10) }, nil, /\A\d{9,10}\z/
-    field :transmission_datetime, Time,
-        lambda { |f| f.strftime('%y%m%d%H%M')},
-        lambda { Time.now }
+    field :transmission_datetime, String
     field :file_id_modifier, String, nil, 'A', /\A\w\z/
     const_field :record_size, '094'
     const_field :blocking_factor, '10'
