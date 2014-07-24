@@ -20,11 +20,8 @@ module ACH::Records
         lambda { |f| f.upcase }, 'PPD', /\A\w{3}\z/
     field :company_entry_description, String,
         lambda { |f| left_justify(f, 10)}
-    field :company_descriptive_date, Time,
-        lambda { |f| f.strftime('%y%m%d')},
-        lambda { Time.now }
-    field :effective_entry_date, Time,
-        lambda { |f| f.strftime('%y%m%d')}
+    field :company_descriptive_date, String
+    field :effective_entry_date, String
     const_field :settlement_date, '   '
     const_field :originator_status_code, '1'
     field :originating_dfi_identification, String,
