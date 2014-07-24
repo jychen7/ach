@@ -47,7 +47,7 @@ module ACH
         @control.entry_hash += batch.control.entry_hash
       end
 
-      records.collect { |r| r.to_ach }.join("\r\n") + "\r\n"
+      records.collect { |r| r.to_ach }.join("\n") + "\n"
     end
 
     def report
@@ -66,7 +66,7 @@ module ACH
       lines << left_justify("Credit Total: ", 25) +
           sprintf("% 7d.%02d", @control.credit_total / 100, @control.credit_total % 100)
 
-      lines.join("\r\n")
+      lines.join("\n")
     end
 
     def parse_fixed data
